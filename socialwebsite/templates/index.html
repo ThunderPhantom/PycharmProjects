@@ -1,0 +1,21 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block scripts%}
+{{super()}}
+{%endblock%}
+
+{%block content%}
+{% for message in get_flashed_messages()%}
+
+    <div class="alert alert-warning" >
+
+        <button type = "button" class="close" data-dismiss="alert">×</button>
+
+        {{message}}
+
+    </div>
+
+{% endfor %}
+
+
+{%enblock%}

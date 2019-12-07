@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
+</head>
+<body>
+    <h1>My First Webpage</h1>
+    <h1>Hello, {{name}}!</h1>
+
+    {% for user in users %}
+    <h1>Hello, {{user.name}}!</h1>
+    {% else %}
+    <p>No data!</p>
+    {% endfor %}
+    <a href="{{ url_for('login') }}">Click here to log in!</a>
+</body>
+</html>

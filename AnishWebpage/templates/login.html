@@ -1,0 +1,35 @@
+{%extends "bootstrap/base.html"%}
+{%block title%}Login Page{%endblock%}
+{%block content%}
+<h1 class="jumbotron text-center">Please Log In</h1>
+<div class="col-md-4 col-md-offset-4">
+    {% for message in get_flashed_messages()%}
+        <div class="alert alert-warning">
+            <button type = "button" class="close" data-dismiss="alert">×</button>
+            {{message}}
+        </div>
+    {% endfor %}
+    <form action = "/login" method = "POST">
+        <table class="table table-striped table-dark">
+            <tr>
+                <td>
+                    E-mail
+                </td>
+                <td>
+                    <input type = "text" name = "em" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password
+                </td>
+                <td>
+                    <input type = "password" name = "pw" required>
+                </td>
+            </tr>
+        </table>
+        <input type = "submit" value = "Log In">
+        <a href="http://127.0.0.1:5000">I Don't Have An Account</a>
+     </form>
+</div>
+{%endblock%}

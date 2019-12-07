@@ -1,0 +1,46 @@
+{%extends "common.html"%}
+{%block title%}Messages{%endblock%}
+
+{%block content%}
+    {{super()}}
+
+<div style="margin-top:50px" class="col-md-4 col-md-offset-4 jumbotron">
+    <form action="/messages" method = "post">
+            <table class="table">
+                <tr>
+                    <td>
+                        To
+                    </td>
+                    <td>
+                        <input type = "text" name = "receiver" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Message
+                    </td>
+                    <td>
+                        <input type = "text" name = "message" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type = "submit" value = "Send">
+                    </td>
+                </tr>
+            </table>
+    </form>
+    <h6><small>Logged in as: {{session['user']}}</small></h6>
+</div>
+<div class = "col-md-4 col-md-offset-1">
+    <h1>Sent Messages</h1>
+    {%for message in sent%}
+        <h3>{{message['To']}}</h3>
+        <p>Posted {{moment(message['Time']).fromNow(refresh=True)}}</p>
+    {%endfor%}
+</div>
+<div class="col-md-4 col-md-offset-2">
+   <h1>Received Messages</h1>
+</div>
+
+{%endblock%}

@@ -1,0 +1,23 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block scripts%}
+{{super()}}
+{%endblock%}
+
+{% block title%}
+Bad Request
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class = "jumbotron text-center">
+
+    <h4> {{error}} </h4>
+
+    <a href = http://127.0.0.1:5000/> Click Here </a> to go to the registration page.
+
+</div>
+
+{%endblock%}

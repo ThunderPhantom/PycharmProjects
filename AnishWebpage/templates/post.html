@@ -1,0 +1,20 @@
+{% extends "common.html"%}
+{%block title%}Post{%endblock%}
+{%block content%}
+    {{super()}}
+
+<div style="margin-top:50px" class="col-md-4 col-md-offset-4 jumbotron">
+    <form action="/post" method = "post">
+        <input type = "text" name = "post" required>
+        <input type = "submit" value = "Post">
+    </form>
+    <h6><small>Logged in as: {{session['user']}}</small></h6>
+</div>
+<div class="col-md-8 col-md-offset-2">
+{%for post in posts%}
+    <h3>{{post['Post']}}</h3>
+    <p>Posted {{moment(post['Posted']).fromNow(refresh=True)}} by {{post['From']}}</p>
+{%endfor%}
+
+</div>
+{%endblock%}

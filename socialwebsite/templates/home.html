@@ -1,0 +1,29 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block scripts %}
+    {{super()}}
+    {{moment.include_moment()}}
+{% endblock%}
+
+{%block content%}
+    <div class ="jumbotron text-center">
+
+        <h1> Hello, there!</h1>
+
+        <p>This is a really good looking webpage</p>
+
+    </div>
+    <div class="jumbotron text-center">
+        <p>{{moment(current_time).format('LLLL') }}</p>
+        <p>You came here {{moment(current_time).fromNow(refresh=True)}}</p>
+    </div>
+    <div class="col-xs-2">
+
+        <form method="post" action="/logout">
+
+            <input type="submit" value="Logout" class="form-control">
+
+        </form>
+
+    </div>
+{%endblock%}
